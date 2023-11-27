@@ -13,7 +13,7 @@ class MusicPlayerState {
   final Duration current;
   final Duration buffered;
   final Duration total;
-  final RepeatEnum repeatEnum;
+  final AudioServiceRepeatMode repeatEnum;
 
   MusicPlayerState(
       {this.status = Status.initial,
@@ -27,7 +27,7 @@ class MusicPlayerState {
       this.current = Duration.zero,
       this.buffered = Duration.zero,
       this.total = Duration.zero,
-      this.repeatEnum = RepeatEnum.OFF});
+      this.repeatEnum = AudioServiceRepeatMode.none});
 
   MusicPlayerState copyWith(
       {Status? status,
@@ -41,7 +41,7 @@ class MusicPlayerState {
       Duration? current,
       Duration? buffered,
       Duration? total,
-      RepeatEnum? repeatEnum}) {
+        AudioServiceRepeatMode? repeatEnum}) {
     return MusicPlayerState(
         status: status ?? this.status,
         errorMessage: errorMessage ?? this.errorMessage,

@@ -31,6 +31,7 @@ class _DetailPageState extends State<DetailPage> {
       value: bloc,
       child: BlocBuilder<MusicPlayerBloc, MusicPlayerState>(
         builder: (context, state) {
+
           return Scaffold(
             backgroundColor: const Color(0xFF00041F),
             appBar: AppBar(
@@ -94,7 +95,6 @@ class _DetailPageState extends State<DetailPage> {
                     children: [
                      Builder(
                         builder: (BuildContext context) {
-                          Icon icon;
                           switch (state.repeatEnum.index) {
                             case 0:
                               print("RepeatEnum.OFF:${state.repeatEnum.index}");

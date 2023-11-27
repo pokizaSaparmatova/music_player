@@ -90,6 +90,7 @@ class _HomePageState extends State<HomePage> {
                             GestureDetector(
                             onTap: () {
                               bloc.add(PlayMusicEvent(state.list[index]));
+
                               print("indexxxxxx:${state.list[index]}");
                               Navigator.push(
                                   context,

@@ -136,21 +136,23 @@ class MusicPlayerBloc extends Bloc<MusicPlayerEvent, MusicPlayerState> {
     });
     on<RepeatNextState>((event, emit) async {
       final nextState = (state.repeatEnum.index + 1) % RepeatEnum.values.length;
-      print("index:${nextState}");
-      emit(state.copyWith(repeatEnum: RepeatEnum.values[nextState]));
+      print("index:${AudioServiceRepeatMode.values[nextState].index}");
+      emit(state.copyWith(repeatEnum: AudioServiceRepeatMode.values[nextState]));
     });
     on<ChangeRepeatMode>((event, emit) async {
     //  print("enummmmmmm:${state.repeatEnum}");
+
       add(RepeatNextState());
+      print('state repeat mode: ${state.repeatEnum.index}');
      if(state.repeatEnum.index==0){
-       handler.setRepeatMode(AudioServiceRepeatMode.none);
+       handler.setRepeatMode(AudioServiceRepeatMode.one);
      }
      else if(state.repeatEnum.index==1){
-       handler.setRepeatMode(AudioServiceRepeatMode.one);
+       handler.setRepeatMode(AudioServiceRepeatMode.all);
 
      }
      else if(state.repeatEnum.index==2){
-       handler.setRepeatMode(AudioServiceRepeatMode.all);
+       handler.setRepeatMode(AudioServiceRepeatMode.none);
 
      }
     });
